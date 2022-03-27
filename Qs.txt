@@ -1,0 +1,9 @@
+Approach for login function - route back to home page with
+a new button to see their profile. 
+Profile page must match the user and the user's saved data
+
+
+
+
+User accumulates points per battle, can spend points on a
+new baby which is added to their profile page to use.
