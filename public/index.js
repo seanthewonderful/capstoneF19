@@ -20,9 +20,7 @@ function displayBabies(arr) {
         createBabyCard(arr[i])
     }
 }
-function test () {
-    console.log("onclick confirmed");
-  };
+
 function createBabyCard(baby) {
     // console.log(baby)
     // let action1 = baby.action1.name
