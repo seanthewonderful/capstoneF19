@@ -23,10 +23,6 @@ body {
 #dangles {
     position: absolute;
     width: 50%;
-    /* max-height: 400px; */
-    /* height: auto; */
-    /* height: 400px; */
-    /* margin-bottom: -50%; */
     overflow: hidden;
 }
 #dangles2 {
@@ -145,11 +141,35 @@ body {
     }
     }
 
+#crawlers {
+    height: 150px;
+    width: fit-content;
+    margin-top: -50px;
+    animation: nudge 5s linear infinite alternate;
+}
+#crawlers2 {
+    height: 150px;
+    width: fit-content;
+    margin-top: -50px;
+    animation: nudge 3s linear infinite alternate;
+}
+@keyframes nudge {
+    0%, 100% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(100px, 0);
+    }
+    80% {
+        transform: translate(-100px, 0);
+    }
+}
+
 .midContent {
     display: flex;
     flex-direction: row;
     position: relative;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-around;
 }
 #midText {
@@ -160,11 +180,11 @@ body {
     font-family: fantasy;
 }
 #takes {
-    font-size: 20pt;
+    font-size: 30pt;
     
 }
 #beBaby {
-    font-size: 40pt;
+    font-size: 50pt;
     margin: 5px;
 }
 
@@ -172,25 +192,132 @@ body {
     from {opacity: 0}
     to {opacity: 1}
 }
-#dropIn {
-    font-size: 30pt;
-    font-family: fantasy;
+
+.wordCarousel {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: space-evenly;
+    column-gap: 2em;
+    top: 50%;
+    font-size: 36px;
+    font-weight: 100;
+    color: rgb(136, 33, 33);
 }
-#dropIn2 {
-    font-size: 30pt;
-    font-family: fantasy;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: space-evenly;
+.wordCarousel div {
+        overflow: hidden;
+        position: relative;
+        float: right;
+        height: 65px;
+        padding-top: 10px;
+        margin-top: -10px;
+}
+       .wordCarousel li {
+            font-family: Serif;
+            /* color: #eee; */
+            font-weight: 700;
+            padding: 0 10px;
+            height: 45px;
+            margin-bottom: 45px;
+            display: block;
+        }
+
+.flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip3 { animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip4 { animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip5 { animation: flip4 12s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip6 { animation: flip4 14s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+
+@keyframes flip2 {
+    0% { margin-top: -180px; }
+    5% { margin-top: -90px;  }
+    50% { margin-top: -90px; }
+    55% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
 }
 
+@keyframes flip3 {
+    0% { margin-top: -270px; }
+    5% { margin-top: -180px; }
+    33% { margin-top: -180px; }
+    38% { margin-top: -90px; }
+    66% { margin-top: -90px; }
+    71% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}
+
+@keyframes flip4 {
+    0% { margin-top: -360px; }
+    5% { margin-top: -270px; }
+    25% { margin-top: -270px; }
+    30% { margin-top: -180px; }
+    50% { margin-top: -180px; }
+    55% { margin-top: -90px; }
+    75% { margin-top: -90px; }
+    80% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}
+@keyframes flip5 {
+    0% { margin-top: -4500px; }
+    5% { margin-top: -360px;  }
+    20% { margin-top: -360px; }
+    25% { margin-top: -270px; }
+    40% { margin-top: -270px; }
+    45% { margin-top: -180px; }
+    60% { margin-top: -180px; }
+    65% { margin-top: -90px; }
+    80% { margin-top: -90px; }
+    85% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}
+@keyframes flip6 {
+    0% { margin-top: -640px; }
+    5% { margin-top: -450px;  }
+    17% { margin-top: -450px; }
+    22% { margin-top: -360px; }
+    33% { margin-top: -360px; }
+    38% { margin-top: -270px; }
+    50% { margin-top: -270px; }
+    55% { margin-top: -180px; }
+    67% { margin-top: -180px; }
+    72% { margin-top: -90px; }
+    83% { margin-top: -90px; }
+    88% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Oswald);
+body,
+html {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* body {
+    font-family: "Roboto Condensed", cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: darkorange; 
+    &::after {
+        content:"";
+        display: block;
+        width: 110%;
+        height: 125vh;
+        background: radial-gradient(#222, #000);
+        position: absolute;
+        z-index: -1;
+        transform: rotate(20deg);
+        border-radius: 50%;
+    }
+} */
 
 #getBabies {
     display: inline;
