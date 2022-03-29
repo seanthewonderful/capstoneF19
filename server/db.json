@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Baby Yoda",
         "health": 100,
-        "imageURL": "../public/images/baby-yoda-crib.jpeg",
+        "imageURL": "../public/images/baby-yoda-crib.png",
         "action1URL": "../public/images/baby-yoda-reaching.png",
         "action1": {
             "class": 1,
@@ -35,10 +35,10 @@
             "class": 2,
             "name": "Sic Teddy Bear"
         },
-        "action3URL": "../public/images/baby-minnie-mouse.png",
+        "action3URL": "../public/images/baby-minnie-pillow.png",
         "action3": {
             "class": 3,
-            "name": "Devious Smile"
+            "name": "Pillow Fight"
         }
     },
     {
@@ -66,7 +66,7 @@
         "id": 4,
         "name": "Baby Groot",
         "health": 140,
-        "imageURL": "../public/images/baby-groot-wave.jpeg",
+        "imageURL": "../public/images/baby-groot-wave.png",
         "action1URL": "../public/images/baby-groot.png",
         "action1": {
             "class": 1,
@@ -87,21 +87,21 @@
         "id": 5,
         "name": "Baby Unicorn",
         "health": 100,
-        "imageURL": "../public/images/baby-unicorn.png",
+        "imageURL": "../public/images/baby-unicorn-smile.png",
         "action1URL": "../public/images/baby-unicorn-rainbow.png",
         "action1": {
             "class": 1,
             "name": "Blinding Rainbow"
             },
-        "action2URL": "../public/images/baby-unicorn-stars.jpeg",
+        "action2URL": "../public/images/baby-unicorn-cloud.jpeg",
         "action2": {
             "class": 2,
-            "name": "Star Fire"
+            "name": "Nap on Cloud"
         },
-        "action3URL": "../public/images/baby-unicorn-smile.png",
+        "action3URL": "../public/images/baby-unicorn-pierce.png",
         "action3": {
             "class": 3,
-            "name": "Smug Smile"
+            "name": "Pierce the Sky"
         }
     },
     {
