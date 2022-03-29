@@ -11,7 +11,7 @@ const getAllBabies = () => {
     console.log("Hello")
     axios.get(`${baseURL}`)
     .then((res) => {
-        console.log(res)
+        // console.log(res)
         // alert(res.data)
         displayBabies(res.data)
     })
@@ -42,8 +42,9 @@ function createBabyCard(baby) {
 const chooseBaby = (id) => {
     axios.get(`${baseURL}?ID=${id}`)
     .then((res) => {
-        console.log(res.data[id-1])
+        // console.log(res.data[id-1])
         ringBaby(res.data[id-1])
+        globalThis.baby = res.data[id-1]
     })
     .catch(err => console.log(err))
 }
@@ -72,8 +73,8 @@ const chooseOpponent = () => {
     .catch(err => console.log(err))
 }
 function showOpponent(baby) {
-    console.log(`${baby.id}`)
-    console.log(opponent)
+    // console.log(`${baby.id}`)
+    // console.log(opponent)
     baby2.innerHTML = `
     <p class="babyName2">${baby.name}</p>
     <img alt="baby picture" src="${baby.imageURL}" class="babyPicture2"/>
@@ -83,15 +84,15 @@ function showOpponent(baby) {
 const chooseAction = (num, id) => {
     axios.get(`${baseURL}?=${id}`)
     .then((res)=> {
-        console.log(res.data[id])
+        // console.log(res.data[id])
         actionSelected(num, res.data[id])
     })
     .catch(err=> console.log(err))
 }
 function actionSelected(num, baby){
     if(num === 1){
-        console.log("first chosen")
-        console.log(baby.action1URL)
+        // console.log("first chosen")
+        // console.log(baby.action1URL)
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
         <div class ="actionButtons" id="id${baby.id}">
@@ -104,7 +105,7 @@ function actionSelected(num, baby){
         `
         duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action1.class}', opponent)">Duel!</button>`
     }else if(num===2){
-        console.log("second chosen")
+        // console.log("second chosen")
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
         <div class ="actionButtons" id="id${baby.id}">
@@ -117,7 +118,7 @@ function actionSelected(num, baby){
         `
         duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action2.class}', opponent)">Duel!</button>`
     }else if(num===3){
-        console.log("third chosen")
+        // console.log("third chosen")
         
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
@@ -137,7 +138,6 @@ const pressDuel = async(act1, opponent) => {
     let choice = (Math.floor(Math.random()*3)+1).toString()
     let url = "action"+choice+"URL"
     let action = "action"+(choice)
-    console.log(act1, choice)
     baby2.innerHTML = `
     <p class ="babyName2">${opponent.name}</p>
     <br>
@@ -145,45 +145,88 @@ const pressDuel = async(act1, opponent) => {
     <p id="action">${opponent[action].name}</p>
     `
     setTimeout(() => {
+        startDuel(act1, choice)
+    }, 500)
+
+    setTimeout(() => {
         duel(act1, choice)
     }, 3000)
 }
-const duel = async(act1, choice) => {
-    console.log(act1, choice)
-    // alert("begin")
-    if(act1 == choice){
+const duel = async(player, comp) => {
+    // console.log(player, comp)
+
+    if(player == comp){
         alert("Tie Game Set Match")
-    }else if(act1 == 1){
-        if(choice == 2){
+    }else if(player == 1){
+        if(comp == 2){
             // computerWins()
             alert("Computer beat you, what a loser")
-            return
-        }else if(choice == 3){
+            
+        }else if(comp == 3){
             // playerWins()
             alert("You Win you glorious bastard")
-            return
+            
         }
-    }else if(act1 == 2){
-        if(choice == 1){
+    }else if(player == 2){
+        if(comp == 1){
             // playerWins()
             alert("You Win you glorious bastard")
-            return
-        }else if(choice == 3){
+            
+        }else if(comp == 3){
             // computerWins()
             alert("Computer beat you...pathetic")
-            return
+            
         }
-    }else if(act1 == 3){
-        if(choice == 1){
+    }else if(player == 3){
+        if(comp == 1){
             // computerWins()
             alert("Computer wins hehehehehe")
-            return
-        }else if(choice == 2){
+            
+        }else if(comp == 2){
             // playerWins()
             alert("You Win you glorious bastard")
-            return
+            
         }
     }
+}
+
+// function init(myAction, compAction){
+//     myAction.style.height='200px'
+//     myAction.style.position='absolute'
+//     myAction.style.top='400pt'
+//     compAction.style.height='200px'
+//     compAction.style.position='absolute'
+//     compAction.style.top='400pt'
+//     compAction.style.float='right'
+// }
+
+const startDuel = (player, computer) => {
+    let myAction = baby["action"+player+"URL"]
+    let myActionName = baby["action"+player].name
+    let compAction = opponent["action"+computer+"URL"]
+    let compActionName = opponent["action"+computer].name
+    
+    document.getElementById('player1img').src = myAction
+    document.getElementById('player2img').src = compAction
+    document.getElementById('p1Name').textContent = myActionName
+    document.getElementById('p2Name').textContent = compActionName
+
+
+    let fade1 = baby1
+    let fade2 = baby2
+    const fadeEffect = setInterval(function() {
+        if(!fade1.style.opacity){
+            fade1.style.opacity = 1
+        }if(fade1.style.opacity>0){
+            fade1.style.opacity -= 0.1
+        }if(!fade2.style.opacity){
+            fade2.style.opacity = 1
+        }if(fade2.style.opacity>0){
+            fade2.style.opacity -= 0.1
+        }else {
+            clearInterval(fadeEffect)
+        }
+    }, 50)
 }
 
 function playerWins(){
