@@ -12,7 +12,7 @@
         "action2URL": "../public/images/baby-yoda-throwup.png",
         "action2": {
             "class": 2,
-            "name": "Frog Throwup"
+            "name": "Frog Barf"
         },
         "action3URL": "../public/images/baby-yoda-cute.png",
         "action3": {
@@ -46,7 +46,7 @@
         "name": "Baby Bowser",
         "health": 150,
         "imageURL": "../public/images/baby-bowser-pxl.png",
-        "action1URL": "../public/images/baby-bowser-arms-out.png",
+        "action1URL": "../public/images/baby-bowser-stomp.png",
         "action1": {
             "class": 1,
             "name": "Stomp Feet"
@@ -91,7 +91,7 @@
         "action1URL": "../public/images/baby-unicorn-rainbow.png",
         "action1": {
             "class": 1,
-            "name": "Blinded by Rainbows"
+            "name": "Blinding Rainbow"
             },
         "action2URL": "../public/images/baby-unicorn-stars.jpeg",
         "action2": {
@@ -112,17 +112,17 @@
         "action1URL": "../public/images/baby-dragon-fire.png",
         "action1": {
             "class": 1,
-            "name": "Fun with Fire Breath"
+            "name": "Fire Breath"
             },
         "action2URL": "../public/images/baby-dragon-clash.png",
         "action2": {
             "class": 2,
-            "name": "Fly Around and Lay Waste"
+            "name": "Raze City"
         },
         "action3URL": "../public/images/baby-dragon-cute.png",
         "action3": {
             "class": 3,
-            "name": "Try to Train This Face"
+            "name": "Train This"
         }
     },
     {
@@ -133,7 +133,7 @@
         "action1URL": "../public/images/baby-jesus-no-cry.png",
         "action1": {
             "class": 1,
-            "name": "No Crying He Made"
+            "name": "No Crying"
             },
         "action2URL": "../public/images/baby-jesus-coerce-gifts.png",
         "action2": {
@@ -159,7 +159,7 @@
         "action2URL": "../public/images/baby-boo-monsters.png",
         "action2": {
             "class": 2,
-            "name": "Monsters Assist"
+            "name": "Monster Assistance"
         },
         "action3URL": "../public/images/baby-boo-costume.png",
         "action3": {

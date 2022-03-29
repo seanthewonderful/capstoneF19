@@ -54,7 +54,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 4;
     width: auto;
     height: 300px;
 }
@@ -180,7 +180,7 @@ body {
     position: relative;
     align-items: flex-end;
     justify-content: space-around;
-    z-index: 2;
+    z-index: 5;
 }
 #midText {
     display: flex;
@@ -364,17 +364,19 @@ body {
     align-items: center;
     text-align: center;
     font-family: Helvetica;
-    /* font-size: medium; */
     border-radius: 12px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    
 }
 .babyPicture {
-    height: 90px;
-    
+    height: 90px; 
 }
-
+.babyPicture1 {
+    height: 140px;
+}
+.babyPicture2 {
+    height: 140px;
+}
 .theRing {
     background-image: url("/public/images/battle-ring.png");
     background-position-x: center;
@@ -383,29 +385,35 @@ body {
     background-size: 95%;
     display: flex;
     position: relative;
-    justify-content: space-between;
+    margin-top: -70pt;
+    justify-content: space-evenly;
     height: 320pt;
+    z-index: 1;
 }
 #ringimg {
     position: absolute;
     width: 95%;
     left: 2.5%;
     margin-top: -70pt;
-    z-index: 1;
+    /* z-index: 0; */
 }
 #baby1 {
     position: relative;
-    width: 45%;
+    width: 35%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
+    gap: 4pt;
 }
 #baby2 {
     position: relative;
-    width: 45%;
-    justify-content: space-around;
-    align-items: center;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 95pt;
 }
 h1{
     display: flex;
@@ -414,4 +422,146 @@ h1{
     justify-content: center;
     margin-top: -5pt;
     margin-bottom: -5pt;
+}
+.babyName2 {
+    font-size: xx-large;
+    font-family: "Chalkduster", fantasy;
+    color: rgb(248, 222, 71);
+}
+.duelBtn {
+    width: 80pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#duelBtn {
+    padding: 10pt;
+    border-radius: 50%;
+    box-shadow: 0 4pt 4pt 4pt rgba(19, 19, 19, 0.466);
+    font-family: "Courier", monospace;
+    font-size: 25pt;
+    background-color: crimson;
+}
+#duelBtn:active {
+    box-shadow: 0 5px rgb(19, 19, 19);
+    transform: translateY(9px);
+    transition: transform 100ms ease-in-out;
+}
+#action {
+    font-family: Rockwell;
+    font-size: x-large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  --color-primary: #34d0ff;
+  --color-secondary: #ea00ff;
+  --color-tertiary: #006eff;
+  --color-quaternary: #0058ca;
+  --color-quinary: #002d68;
+  /*
+  --color-primary: #5192ED;
+  --color-secondary: #69A1F0;
+  --color-tertiary: #7EAEF2;
+  --color-quaternary: #90BAF5;
+  --color-quinary: #A2C4F5;
+  */
+}
+#selectAction {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: Luminari;
+  text-transform: uppercase;
+  font-size: 23pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  color: transparent;
+  background-color: rgba(255, 255, 255, 0);
+  background-clip: text;
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
