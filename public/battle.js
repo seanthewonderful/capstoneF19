@@ -4,8 +4,8 @@ const baseURL = 'http://localhost:9009/api/babies'
 const babyContainer = document.querySelector(".babiesContainer2")
 const baby1 = document.querySelector("#baby1")
 const baby2 = document.querySelector("#baby2")
+const baby22 = document.querySelector("#baby22")
 const duelBtn = document.querySelector(".duelBtn")
-// const chooseBaby = document.querySelector(".choose")
 
 const getAllBabies = () => {
     console.log("Hello")
@@ -66,25 +66,19 @@ const chooseOpponent = () => {
     let id = Math.floor(Math.random()*10)
     axios.get(`${baseURL}?ID=${id}`)
     .then((res) => {
-        // console.log(res.data[id])
-        showOpponent(res.data[id])
+        globalThis.opponent = res.data[id]
+        showOpponent(opponent)
     })
     .catch(err => console.log(err))
 }
 function showOpponent(baby) {
-    saveOpponent(baby)
+    console.log(`${baby.id}`)
+    console.log(opponent)
     baby2.innerHTML = `
     <p class="babyName2">${baby.name}</p>
     <img alt="baby picture" src="${baby.imageURL}" class="babyPicture2"/>
     `
-    // let opponent = baby
-    // return opponent
 }
-// function saveOpponent(baby){
-//     return baby
-// }
-// let opponent = saveOpponent()
-// console.log(opponent)
 
 const chooseAction = (num, id) => {
     axios.get(`${baseURL}?=${id}`)
@@ -108,7 +102,7 @@ function actionSelected(num, baby){
         <img alt="baby picture" src="${baby.action1URL}" class="babyPicture1"/>
         <p id="action">${baby.action1.name}</p>
         `
-        duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel(${baby.action1.class}, opponent)">Duel!</button>`
+        duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action1.class}', opponent)">Duel!</button>`
     }else if(num===2){
         console.log("second chosen")
         baby1.innerHTML = `
@@ -121,9 +115,10 @@ function actionSelected(num, baby){
         <img alt="baby picture" src="${baby.action2URL}" class="babyPicture1"/>
         <p id="action">${baby.action2.name}</p>
         `
-        duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel(${baby.action2.class}, opponent)">Duel!</button>`
+        duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action2.class}', opponent)">Duel!</button>`
     }else if(num===3){
         console.log("third chosen")
+        
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
         <div class ="actionButtons" id="id${baby.id}">
@@ -134,21 +129,73 @@ function actionSelected(num, baby){
         <img alt="baby picture" src="${baby.action3URL}" class="babyPicture1"/>
         <p id="action">${baby.action3.name}</p>
         `
-        duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel(${baby.action3.class}, opponent)">Duel!</button>`
+        duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action3.class}', opponent)">Duel!</button>`
     }
 }
 
-const pressDuel = (act1, opp) => {
-    console.log(act1)
-    console.log(opp)
+const pressDuel = async(act1, opponent) => {
+    let choice = (Math.floor(Math.random()*3)+1).toString()
+    let url = "action"+choice+"URL"
+    let action = "action"+(choice)
+    console.log(act1, choice)
+    baby2.innerHTML = `
+    <p class ="babyName2">${opponent.name}</p>
+    <br>
+    <img alt="baby picture" src="${opponent[url]}" class="babyPicture1"/>
+    <p id="action">${opponent[action].name}</p>
+    `
+    setTimeout(() => {
+        duel(act1, choice)
+    }, 3000)
 }
-function duel(){
+const duel = async(act1, choice) => {
+    console.log(act1, choice)
+    // alert("begin")
+    if(act1 == choice){
+        alert("Tie Game Set Match")
+    }else if(act1 == 1){
+        if(choice == 2){
+            // computerWins()
+            alert("Computer beat you, what a loser")
+            return
+        }else if(choice == 3){
+            // playerWins()
+            alert("You Win you glorious bastard")
+            return
+        }
+    }else if(act1 == 2){
+        if(choice == 1){
+            // playerWins()
+            alert("You Win you glorious bastard")
+            return
+        }else if(choice == 3){
+            // computerWins()
+            alert("Computer beat you...pathetic")
+            return
+        }
+    }else if(act1 == 3){
+        if(choice == 1){
+            // computerWins()
+            alert("Computer wins hehehehehe")
+            return
+        }else if(choice == 2){
+            // playerWins()
+            alert("You Win you glorious bastard")
+            return
+        }
+    }
+}
+
+function playerWins(){
+
+}
+function computerWins(){
 
 }
 
-function showDuelBtn() {
-    duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel()">Duel!</button>`
-}
+// function showDuelBtn() {
+//     duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel()">Duel!</button>`
+// }
 function selectAction() {
     duelBtn.innerHTML = `<h4 id="selectAction">Select Your Action</h4>`
 }
