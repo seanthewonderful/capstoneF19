@@ -2,7 +2,7 @@ body {
     background-image: url("/public/images/333950.png");
     background-position-x: center;
     background-size: 250%;
-    z-index: 0;
+    /* z-index: 0; */
 }
 
 #headerDiv {
@@ -18,7 +18,7 @@ body {
     font-weight: 900;
     font-style: normal;
     font-variant: normal;
-    text-transform: none;
+    text-shadow: black 2pt 2pt 2pt 0;
 }
 
 #dangles {
@@ -41,7 +41,7 @@ body {
     font-family: "Luminari";
     font-size:30pt;
     font-weight: bold;
-    z-index: 1;
+    z-index: 2;
     background: radial-gradient(red, gray);
     padding: 10px;
 }
@@ -52,15 +52,15 @@ body {
 }
 
 #loginBtn {
-    font-size: 16pt;
+    font-size: 13pt;
     margin-right: 5pt;
-    background: rgb(177, 177, 177);
+    background: rgb(153, 148, 80);
     box-shadow: 1pt 1pt 1pt 1pt rgb(59, 59, 59);
 }
 #loginBtn:hover {
-    background-color: rgb(214, 141, 157);
+    background-color: rgb(206, 231, 94);
     color: darkblue;
-    box-shadow: 0 3pt 2pt 2pt rgb(27, 27, 27);
+    box-shadow: 1pt 1pt 2pt 2pt rgb(27, 27, 27);
     transition: transform 100ms ease-in-out;
 }
 #loginBtn:active {
@@ -86,7 +86,7 @@ body {
     top: 100px;
     height: 200px;
     width: 100%;
-    z-index: 5;
+    z-index: 1;
    }
 
 .flyIn .flyInText {    
@@ -98,7 +98,6 @@ body {
     font-size: 50pt;
     font-variant: small-caps;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    z-index: 2;
     color: rgb(17, 150, 184);
     text-shadow: #000000 0px 1px, #FFF 0 2px 4px, #ff0 0 -2px 8px, #ff8000 0 -8px 16px, red 0 -14px 40px;
     animation: flyInText 1.1s ease-in;
@@ -125,7 +124,6 @@ body {
     font-style: italic;
     color: rgb(211, 102, 193);
     text-shadow: #000000 0px 1px, #FFF 0 2px 4px, #ff0 0 -2px 8px, #ff8000 0 -8px 16px, red 0 -14px 40px;
-    z-index: 2;
     animation: flyInText 1s ease-in;
     animation-fill-mode: backwards;
     animation-delay: 1s;
@@ -144,19 +142,15 @@ body {
     height: 100%;
     margin: 0;
     line-height: 50px;
-    /* text-align: left;  */
     font-size: 60pt;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     text-transform: uppercase;
     font-weight: 700;
     text-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 8px, #ff8000 0 -8px 16px, red 0 -14px 40px;
-    z-index: 2;
-/* Apply animation to this element */	
     animation: flyInText 1.5s normal;
     animation-fill-mode: backwards;
     animation-delay: 2s;
     }
-/* Move it (define the animation) */
 @keyframes flyInText3 {
     0%   { 
     transform: translateX(200%); 		
@@ -328,9 +322,7 @@ body {
 #getBabies {
     border-radius: 25%;
     height: 70pt;
-    /* z-index: auto; */
     background-color: rgb(66, 151, 47);
-    /* font-family: "Copperplate", fantasy; */
     font-family: "American Typewriter";
     font-size: 30pt;
     box-shadow: 0 9px #999;
@@ -348,25 +340,22 @@ body {
 }
 
 .babiesContainer {
-    /* font-family: American Typewriter; */
-    /* font-size: 40pt; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 10;
+    z-index: 0;
     height: 100%;
 }
 .babiesContainer2 {
     font-family: American Typewriter;
-    /* font-size: 40pt; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 10;
+    z-index: 0;
     height: 100%;
 }
 
@@ -450,7 +439,7 @@ body {
     margin-top: -70pt;
     justify-content: space-evenly;
     height: 320pt;
-    z-index: 1;
+    z-index: 2;
 }
 #baby1 {
     position: relative;
