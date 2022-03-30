@@ -73,8 +73,6 @@ const chooseOpponent = () => {
     .catch(err => console.log(err))
 }
 function showOpponent(baby) {
-    // console.log(`${baby.id}`)
-    // console.log(opponent)
     baby2.innerHTML = `
     <p class="babyName2">${baby.name}</p>
     <img alt="baby picture" src="${baby.imageURL}" class="babyPicture2"/>
@@ -84,15 +82,12 @@ function showOpponent(baby) {
 const chooseAction = (num, id) => {
     axios.get(`${baseURL}?=${id}`)
     .then((res)=> {
-        // console.log(res.data[id])
         actionSelected(num, res.data[id])
     })
     .catch(err=> console.log(err))
 }
 function actionSelected(num, baby){
     if(num === 1){
-        // console.log("first chosen")
-        // console.log(baby.action1URL)
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
         <div class ="actionButtons" id="id${baby.id}">
@@ -118,8 +113,6 @@ function actionSelected(num, baby){
         `
         duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action2.class}', opponent)">Duel!</button>`
     }else if(num===3){
-        // console.log("third chosen")
-        
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
         <div class ="actionButtons" id="id${baby.id}">
@@ -146,59 +139,42 @@ const pressDuel = async(act1, opponent) => {
     `
     setTimeout(() => {
         startDuel(act1, choice)
-    }, 500)
+    }, 1000)
 
     setTimeout(() => {
         duel(act1, choice)
     }, 3000)
 }
 const duel = async(player, comp) => {
-    // console.log(player, comp)
-
     if(player == comp){
         alert("Tie Game Set Match")
     }else if(player == 1){
         if(comp == 2){
-            // computerWins()
-            alert("Computer beat you, what a loser")
-            
+            computerWins()
+            // alert("Computer beat you, what a loser")
         }else if(comp == 3){
-            // playerWins()
-            alert("You Win you glorious bastard")
-            
+            playerWins()
+            // alert("You Win you glorious bastard")
         }
     }else if(player == 2){
         if(comp == 1){
-            // playerWins()
-            alert("You Win you glorious bastard")
-            
+            playerWins()
+            // alert("You Win you glorious bastard")
         }else if(comp == 3){
-            // computerWins()
-            alert("Computer beat you...pathetic")
-            
+            computerWins()
+            // alert("Computer beat you...pathetic")
         }
     }else if(player == 3){
         if(comp == 1){
-            // computerWins()
-            alert("Computer wins hehehehehe")
-            
+            computerWins()
+            // alert("Computer wins hehehehehe")
         }else if(comp == 2){
-            // playerWins()
-            alert("You Win you glorious bastard")
-            
+            playerWins()
+            // alert("You Win you glorious bastard")
         }
     }
 }
 
-// function init(myAction, compAction){
-//     myAction.style.height='200px'
-//     myAction.style.position='absolute'
-//     myAction.style.top='400pt'
-//     compAction.style.height='200px'
-//     compAction.style.position='absolute'
-//     compAction.style.top='400pt'
-//     compAction.style.float='right'
-// }
 
 const startDuel = (player, computer) => {
     let myAction = baby["action"+player+"URL"]
@@ -211,18 +187,17 @@ const startDuel = (player, computer) => {
     document.getElementById('p1Name').textContent = myActionName
     document.getElementById('p2Name').textContent = compActionName
 
-
     let fade1 = baby1
     let fade2 = baby2
     const fadeEffect = setInterval(function() {
         if(!fade1.style.opacity){
             fade1.style.opacity = 1
         }if(fade1.style.opacity>0){
-            fade1.style.opacity -= 0.1
+            fade1.style.opacity -= 0.2
         }if(!fade2.style.opacity){
             fade2.style.opacity = 1
         }if(fade2.style.opacity>0){
-            fade2.style.opacity -= 0.1
+            fade2.style.opacity -= 0.2
         }else {
             clearInterval(fadeEffect)
         }
@@ -230,10 +205,22 @@ const startDuel = (player, computer) => {
 }
 
 function playerWins(){
-
+    duelBtn.innerHTML = `
+    <div class="winner">
+    <p>The Winner Is...</p>
+    <img src="${baby.imageURL}" id="victor"/>
+    <p class="babyName2">${baby.name}</p>
+    </div>
+    `
 }
 function computerWins(){
-
+    duelBtn.innerHTML = `
+    <div class="winner">
+    <p>The Winner Is...</p>
+    <img src="${opponent.imageURL}" id="victor"/>
+    <p class="babyName2">${opponent.name}</p>
+    </div>
+    `
 }
 
 // function showDuelBtn() {

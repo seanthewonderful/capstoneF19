@@ -109,7 +109,6 @@ body {
     color: rgb(211, 102, 193);
     text-shadow: #000000 0px 1px, #FFF 0 2px 4px, #ff0 0 -2px 8px, #ff8000 0 -8px 16px, red 0 -14px 40px;
     z-index: 2;
-/* Apply animation to this element */	
     animation: flyInText 1s ease-in;
     animation-fill-mode: backwards;
     animation-delay: 1s;
@@ -383,15 +382,35 @@ body {
     flex-direction: column;
     align-items: center;
     top: 330pt;
-    left: 4%;
-    z-index: 15;
+    left: 15%;
+    z-index: 15; 
+    /* animation: glide 0.1s ease-in-out alternate infinite; */
 }
+.bounce {
+    animation: glide 0.1s ease-in-out alternate infinite;
+}
+ 
+ @keyframes glide  {
+    from {
+       left:15%;
+       top:330pt;
+    }  
+    to {
+       left:15%;
+       top:300pt;
+    }
+ }
+
 #player1img {
     height: 150pt;
 }
+
 #player2 {
     position: absolute;
-    right: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 15%;
     float: right;
     top: 330pt;
     z-index: 15;
@@ -441,7 +460,6 @@ body {
     justify-content: space-around;
     align-items: flex-start;
     transition: opacity 1s;
-    /* gap: 95pt; */
 }
 h1{
     display: flex;
@@ -464,7 +482,6 @@ h1{
     align-items: center;
 }
 #duelBtn {
-    /* padding: 10pt; */
     position: relative;
     border-radius: var(--border-width);
     --border-width: 4pt;
@@ -615,4 +632,45 @@ h1{
   100% {
     transform: translate(0px, 0px);
   }
+}
+
+.winner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Apple Chancery;
+    font-size: x-large;
+    font-weight: bold;
+    z-index: 20;
+}
+#victor {
+    height: 200pt;
+    border-radius: var(--border-width);
+    --border-width: 50pt;
+    box-shadow: 0 4pt 4pt 4pt rgba(19, 19, 19, 0.466);
+    z-index: 20;
+}
+#victor::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: 20;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: var(--border-width);
+    animation: moveGradient 3s alternate infinite;
 }
