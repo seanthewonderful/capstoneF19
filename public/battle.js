@@ -4,8 +4,8 @@ const baseURL = 'http://localhost:9009/api/babies'
 const babyContainer = document.querySelector(".babiesContainer2")
 const baby1 = document.querySelector("#baby1")
 const baby2 = document.querySelector("#baby2")
-const baby22 = document.querySelector("#baby22")
 const duelBtn = document.querySelector(".duelBtn")
+const playAgainBtn = document.querySelector("#reset")
 
 const getAllBabies = () => {
     console.log("Hello")
@@ -40,6 +40,7 @@ function createBabyCard(baby) {
 }
 
 const chooseBaby = (id) => {
+    // baby1.innerHTML = ``
     axios.get(`${baseURL}?ID=${id}`)
     .then((res) => {
         // console.log(res.data[id-1])
@@ -147,35 +148,27 @@ const pressDuel = async(act1, opponent) => {
 }
 const duel = async(player, comp) => {
     if(player == comp){
-        alert("Tie Game Set Match")
+        tieGame()
     }else if(player == 1){
         if(comp == 2){
             computerWins()
-            // alert("Computer beat you, what a loser")
         }else if(comp == 3){
             playerWins()
-            // alert("You Win you glorious bastard")
         }
     }else if(player == 2){
         if(comp == 1){
             playerWins()
-            // alert("You Win you glorious bastard")
         }else if(comp == 3){
             computerWins()
-            // alert("Computer beat you...pathetic")
         }
     }else if(player == 3){
         if(comp == 1){
             computerWins()
-            // alert("Computer wins hehehehehe")
         }else if(comp == 2){
             playerWins()
-            // alert("You Win you glorious bastard")
         }
     }
 }
-
-
 const startDuel = (player, computer) => {
     let myAction = baby["action"+player+"URL"]
     let myActionName = baby["action"+player].name
@@ -212,6 +205,9 @@ function playerWins(){
     <p class="babyName2">${baby.name}</p>
     </div>
     `
+    setTimeout(() => {
+        playAgain()
+    }, 3000)
 }
 function computerWins(){
     duelBtn.innerHTML = `
@@ -221,14 +217,46 @@ function computerWins(){
     <p class="babyName2">${opponent.name}</p>
     </div>
     `
+    setTimeout(() => {
+        playAgain()
+    }, 3000)
 }
-
-// function showDuelBtn() {
-//     duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel()">Duel!</button>`
-// }
+function tieGame(){
+    duelBtn.innerHTML = `
+    <div class="winner">
+    <p>The Winner Is...</p>
+    <img src="/public/images/baby-pouting.png" id="victor"/>
+    <p class="babyName2">Tie Game</p>
+    </div>
+    `
+    setTimeout(() => {
+        playAgain()
+    }, 2400)
+}
+function playAgain(){
+    duelBtn.innerHTML +=`
+    <div class="reset">
+    <button id="reset" onclick="resetRing()">Play Again</button>
+    </div>
+    `
+}
+function resetRing(){
+    document.querySelector("#player1").innerHTML = `
+    <img src="" id="player1img"/>
+    <p id="p1Name"></p>
+    `
+    document.querySelector("#player2").innerHTML =`
+    <img src="" id="player2img"/>
+        <p id="p2Name"></p>
+    `
+    baby1.innerHTML = ``
+    baby1.style.opacity = "1"
+    baby2.innerHTML = ``
+    baby2.style.opacity = "1"
+    duelBtn.innerHTML = ``
+}
 function selectAction() {
     duelBtn.innerHTML = `<h4 id="selectAction">Select Your Action</h4>`
 }
-
 
 getAllBabies()

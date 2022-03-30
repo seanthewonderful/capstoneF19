@@ -32,6 +32,25 @@ body {
     width: 50%;
 }
 
+#battlePage {
+    position: sticky;
+    float: right;
+    top: 16%;
+    border-color: rgb(212, 120, 0);    border-width: 4pt;
+    border-radius: 20%;
+    font-family: "Luminari";
+    font-size:30pt;
+    font-weight: bold;
+    z-index: 1;
+    background: radial-gradient(red, gray);
+    padding: 10px;
+}
+#battlePage:hover {
+    background: radial-gradient(yellow, red);
+    transform: translateX(-5px);
+    transition: transform 100ms ease-in-out;
+}
+
 #loginBtn {
     font-size: 16pt;
     margin-right: 5pt;
@@ -54,7 +73,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 4;
+    z-index: 0;
     width: auto;
     height: 300px;
 }
@@ -71,7 +90,6 @@ body {
    }
 
 .flyIn .flyInText {    
-    /* width: 100%; */
     text-indent: 5%;
     height: 100%;
     margin: 0;
@@ -83,10 +101,9 @@ body {
     z-index: 2;
     color: rgb(17, 150, 184);
     text-shadow: #000000 0px 1px, #FFF 0 2px 4px, #ff0 0 -2px 8px, #ff8000 0 -8px 16px, red 0 -14px 40px;
-/* Apply animation to this element */	
     animation: flyInText 1.1s ease-in;
     }
-/* Move it (define the animation) */
+
 @keyframes flyInText {
     0%   { 
     transform: translateX(200%); 		
@@ -215,22 +232,22 @@ body {
     color: rgb(136, 33, 33);
 }
 .wordCarousel div {
-        overflow: hidden;
-        position: relative;
-        float: right;
-        height: 65px;
-        padding-top: 10px;
-        margin-top: -10px;
+    overflow: hidden;
+    position: relative;
+    float: right;
+    height: 65px;
+    padding-top: 10px;
+    margin-top: -10px;
 }
-       .wordCarousel li {
-            font-family: "Marker Felt", fantasy;
-            font-weight: 700;
-            padding: 0 10px;
-            height: 45px;
-            width: 150pt;
-            margin-bottom: 45px;
-            display: block;
-        }
+.wordCarousel li {
+    font-family: "Marker Felt", fantasy;
+    font-weight: 700;
+    padding: 0 10px;
+    height: 45px;
+    width: 150pt;
+    margin-bottom: 45px;
+    display: block;
+}
 
 .flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
 .flip3 { animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
@@ -383,7 +400,7 @@ body {
     align-items: center;
     top: 330pt;
     left: 15%;
-    z-index: 15; 
+    z-index: 1; 
     /* animation: glide 0.1s ease-in-out alternate infinite; */
 }
 .bounce {
@@ -413,7 +430,7 @@ body {
     right: 15%;
     float: right;
     top: 330pt;
-    z-index: 15;
+    z-index: 1;
 }
 #player2img {
     height: 150pt;
@@ -434,13 +451,6 @@ body {
     justify-content: space-evenly;
     height: 320pt;
     z-index: 1;
-}
-#ringimg {
-    position: absolute;
-    width: 95%;
-    left: 2.5%;
-    margin-top: -70pt;
-    /* z-index: 0; */
 }
 #baby1 {
     position: relative;
@@ -474,12 +484,17 @@ h1{
     font-family: "Chalkduster", fantasy;
     color: rgb(248, 222, 71);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    display: inline-block;
+    clear: both;
+    white-space: nowrap;
+    
 }
 .duelBtn {
     width: 80pt;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 15;
 }
 #duelBtn {
     position: relative;
@@ -527,6 +542,29 @@ h1{
 #action {
     font-family: Rockwell;
     font-size: x-large;
+}
+.reset {
+    position: absolute;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#reset {
+    position: relative;
+    border-color: rgb(212, 120, 0);    border-width: 4pt;
+    border-radius: 20%;
+    font-family: "Luminari";
+    font-size:30pt;
+    font-weight: bold;
+    z-index: 6;
+    background: radial-gradient(white, rgb(0, 132, 255), rgb(248, 98, 28));
+    padding: 10px;
+}
+#reset:hover {
+    background: radial-gradient(rgb(195, 0, 255), rgb(0, 132, 255));
+    transform: translateY(5px);
+    transition: transform 100ms ease-in-out;
 }
 
 .actionButtons button:hover,
@@ -638,19 +676,22 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: nowrap;
     font-family: Apple Chancery;
     font-size: x-large;
     font-weight: bold;
-    z-index: 20;
+    z-index: 5;
+    overflow: visible;
 }
 #victor {
     height: 200pt;
     border-radius: var(--border-width);
     --border-width: 50pt;
-    box-shadow: 0 4pt 4pt 4pt rgba(19, 19, 19, 0.466);
-    z-index: 20;
+    box-shadow: 0 5pt 5pt 5pt rgba(19, 19, 19, 0.466);
+    /* z-index: 20; */
+    display: inline-block;
 }
-#victor::after {
+/* #victor::after {
     position: absolute;
     content: "";
     top: calc(-1 * var(--border-width));
@@ -673,4 +714,4 @@ h1{
     background-position: 0 50%;
     border-radius: var(--border-width);
     animation: moveGradient 3s alternate infinite;
-}
+} */
