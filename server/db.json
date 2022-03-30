@@ -22,23 +22,23 @@
     },
     {
         "id": 2,
-        "name": "Baby Minnie Mouse",
+        "name": "Baby Boo",
         "health": 100,
-        "imageURL": "../public/images/baby-minnie.png",
-        "action1URL": "../public/images/baby-minnie-flowers.png",
+        "imageURL": "../public/images/baby-boo.png",
+        "action1URL": "../public/images/baby-boo-sic-mike.png",
         "action1": {
             "class": 1,
-            "name": "Flower Attack"
+            "name": "Sic Mike Wyzowski"
             },
-        "action2URL": "../public/images/baby-minnie-teddy-bear.png",
+        "action2URL": "../public/images/baby-boo-monsters.png",
         "action2": {
             "class": 2,
-            "name": "Sic Teddy Bear"
+            "name": "Monster Assistance"
         },
-        "action3URL": "../public/images/baby-minnie-pillow.png",
+        "action3URL": "../public/images/baby-boo-costume.png",
         "action3": {
             "class": 3,
-            "name": "Pillow Fight"
+            "name": "Monster Costume Fashion Show"
         }
     },
     {
@@ -148,23 +148,23 @@
     },
     {
         "id": 8,
-        "name": "Baby Boo",
+        "name": "Baby Minnie Mouse",
         "health": 100,
-        "imageURL": "../public/images/baby-boo.png",
-        "action1URL": "../public/images/baby-boo-sic-mike.png",
+        "imageURL": "../public/images/baby-minnie.png",
+        "action1URL": "../public/images/baby-minnie-flowers.png",
         "action1": {
             "class": 1,
-            "name": "Sic Mike Wyzowski"
+            "name": "Flower Attack"
             },
-        "action2URL": "../public/images/baby-boo-monsters.png",
+        "action2URL": "../public/images/baby-minnie-teddy-bear.png",
         "action2": {
             "class": 2,
-            "name": "Monster Assistance"
+            "name": "Sic Teddy Bear"
         },
-        "action3URL": "../public/images/baby-boo-costume.png",
+        "action3URL": "../public/images/baby-minnie-tea.png",
         "action3": {
             "class": 3,
-            "name": "Monster Costume Fashion Show"
+            "name": "Host Tea Party"
         }
     },
     {

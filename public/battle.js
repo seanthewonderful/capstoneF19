@@ -11,8 +11,6 @@ const getAllBabies = () => {
     console.log("Hello")
     axios.get(`${baseURL}`)
     .then((res) => {
-        // console.log(res)
-        // alert(res.data)
         displayBabies(res.data)
     })
     .catch(err => console.log(err))
@@ -28,8 +26,8 @@ function displayBabies(arr) {
 function createBabyCard(baby) {
     const babyCard = document.createElement('div')
     babyCard.classList.add("babiesCard")
-    babyCard.innerHTML += 
-    `<img alt="baby picture" src=${baby.imageURL} class="babyPicture"/>
+    babyCard.innerHTML += `
+    <img alt="baby picture" src=${baby.imageURL} class="babyPicture"/>
     <div class="babyButtonContainer" id="id${baby.id}">
         <button class="choose" onclick="chooseBaby('${baby.id}')">Choose Baby</button>
     </div>

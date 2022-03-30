@@ -8,47 +8,33 @@
     <title>Baby Login</title>
 </head>
 <body>
-    <form id="login-form">
-        <h1>Log In</h1>
-        <input 
-            type='text'
-            id="login-username"
-            placeholder="Username"/>
-        <input 
-            type='password'
-            id="login-password"
-            placeholder='Password'/>
-        <button>Sign In</button>
-    </form>
-    <form id="register-form">
-      <h1>Register</h1>
-      <input 
-          type='text'
-          id="register-username"
-          placeholder="Username"/>
-      <input 
-          type='text'
-          id="register-email"
-          placeholder='Email'/>
-      <input 
-          type='text'
-          id="register-firstName"
-          placeholder='First Name'/>
-      <input 
-          type='text'
-          id="register-lastName"
-          placeholder='Last Name'/>
-      <input 
-          type='password'
-          id="register-password"
-          placeholder='Password'/>
-      <input 
-          type='password'
-          id="register-password-2"
-          placeholder='Confirm Password'/>
-      <button>Register</button>
-  </form>
+    <div id="headerDiv">Create a new Baby Battler</div>
+    <a href="index.html"><button id="battlePage">Go Home</button></a>
 
+  <div class="newBaby">
+      <input 
+      type="text"
+      id="newBabyInput"
+      placeholder="Baby Name"/>Baby Fighter Name
+      <input
+      type="text"
+      id="newBabyURL"
+      placeholder="Image URL"/>Paste Baby's Image URL
+      <input
+      type="text"
+      id="newBabyAction1"
+      placeholder="Action"/>Enter New Baby's Action 1
+      <input
+      type="text"
+      id="newBabyAction2"
+      placeholder="Action"/>Enter New Baby's Action 2
+      <input
+      type="text"
+      id="newBabyAction3"
+      placeholder="Action"/>Enter New Baby's Action 3
+      <button id="submit">Submit</button>
+  </div>
+  <div class="babiesContainer"></div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="login.js"></script>
