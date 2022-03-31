@@ -350,7 +350,6 @@ body {
     z-index: 0;
     height: 100%;
 }
-
 .babiesCard {
     background-color: rgb(255, 183, 219);
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.349);
@@ -382,13 +381,11 @@ body {
     top: 330pt;
     left: 15%;
     z-index: 1; 
-    /* animation: glide 0.1s ease-in-out alternate infinite; */
 }
 .bounce {
     animation: glide 0.1s ease-in-out alternate infinite;
 }
- 
- @keyframes glide  {
+@keyframes glide  {
     from {
        left:15%;
        top:330pt;
@@ -397,12 +394,10 @@ body {
        left:15%;
        top:300pt;
     }
- }
-
+}
 #player1img {
     height: 150pt;
 }
-
 #player2 {
     position: absolute;
     display: flex;
@@ -468,7 +463,6 @@ h1{
     display: inline-block;
     clear: both;
     white-space: nowrap;
-    
 }
 .duelBtn {
     width: 80pt;
@@ -556,7 +550,6 @@ h1{
     outline: 0;
     box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
 }
-
 .actionButtons button {  
     font-family: "Courier", monospace;
     font-size: medium;
@@ -566,7 +559,6 @@ h1{
     -webkit-transition: all 150ms ease-in-out;
     transition: all 150ms ease-in-out;
 }
-
 :root {
   --color-primary: #34d0ff;
   --color-secondary: #ea00ff;
@@ -652,7 +644,6 @@ h1{
     transform: translate(0px, 0px);
   }
 }
-
 .winner {
     display: flex;
     flex-direction: column;

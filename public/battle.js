@@ -22,7 +22,6 @@ function displayBabies(arr) {
         createBabyCard(arr[i])
     }
 }
-
 function createBabyCard(baby) {
     const babyCard = document.createElement('div')
     babyCard.classList.add("babiesCard")
@@ -36,7 +35,6 @@ function createBabyCard(baby) {
     `
     babyContainer.appendChild(babyCard)
 }
-
 const chooseBaby = (id) => {
     // baby1.innerHTML = ``
     axios.get(`${baseURL}?ID=${id}`)
@@ -47,7 +45,6 @@ const chooseBaby = (id) => {
     })
     .catch(err => console.log(err))
 }
-
 function ringBaby(baby) {
     baby1.innerHTML = `
     <p class ="babyName2">${baby.name}</p>
@@ -61,7 +58,6 @@ function ringBaby(baby) {
     chooseOpponent()
     selectAction()
 }
-
 const chooseOpponent = () => {
     let id = Math.floor(Math.random()*10)
     axios.get(`${baseURL}?ID=${id}`)
@@ -77,7 +73,6 @@ function showOpponent(baby) {
     <img alt="baby picture" src="${baby.imageURL}" class="babyPicture2"/>
     `
 }
-
 const chooseAction = (num, id) => {
     axios.get(`${baseURL}?=${id}`)
     .then((res)=> {
@@ -124,7 +119,6 @@ function actionSelected(num, baby){
         duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action3.class}', opponent)">Duel!</button>`
     }
 }
-
 const pressDuel = async(act1, opponent) => {
     let choice = (Math.floor(Math.random()*3)+1).toString()
     let url = "action"+choice+"URL"
@@ -193,7 +187,6 @@ const startDuel = (player, computer) => {
         }
     }, 50)
 }
-
 function playerWins(){
     duelBtn.innerHTML = `
     <div class="winner">
