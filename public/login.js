@@ -4,10 +4,6 @@ const newBaby = document.querySelector(".newBaby")
 const submit = document.querySelector("#submit")
 const babyContainer = document.querySelector(".babiesContainer")
 
-// const createNewBaby = (body) => {
-//     axios.post(baseURL, body)
-//     .then(babyCallback).catch(err=> console.log(err))
-// }
 const getAllBabies = () => {
     console.log("Hello")
     axios.get(`${baseURL}`)
@@ -65,6 +61,11 @@ function submitHandler(e){
     axios.post(baseURL, babyObj)
     .then(getAllBabies)
     .catch(err=> console.log(err))
+    name.value = ''
+    image.value = ''
+    a1.value=''
+    a2.value=''
+    a3.value=''
 }
 
 getAllBabies()

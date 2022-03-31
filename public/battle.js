@@ -99,7 +99,6 @@ function actionSelected(num, baby){
         `
         duelBtn.innerHTML = `<button id="duelBtn" onclick="pressDuel('${baby.action1.class}', opponent)">Duel!</button>`
     }else if(num===2){
-        // console.log("second chosen")
         baby1.innerHTML = `
         <p class ="babyName2">${baby.name}</p>
         <div class ="actionButtons" id="id${baby.id}">

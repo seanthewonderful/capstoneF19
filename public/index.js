@@ -33,10 +33,13 @@ function createBabyCard(baby) {
 }
 
 function showStats(id,p1,p2,p3){
-    document.querySelector(".show").style.display = "none"
+    // document.querySelector(".show").style.display = "none"
+    document.querySelector(".babyButtonContainer").innerHTML = `<button class="hide" onclick="hideStats('${id}')">Hide Stats</button>`
     document.querySelector(`#id${id}`).innerHTML +=
-    `<p><u>Action 1:</u><br>${p1}<br><u>Action 2:</u><br>${p2}<br><u>Action 3:</u><br>${p3}</p>`
+    `<p id='${id}id'><u>Action 1:</u><br>${p1}<br><u>Action 2:</u><br>${p2}<br><u>Action 3:</u><br>${p3}</p>`
 }
-
+function hideStats(id) {
+    document.querySelector(`${id}id`).remove()
+}
 
 getAll.addEventListener("click", getAllBabies)
