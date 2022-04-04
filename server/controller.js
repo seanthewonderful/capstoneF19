@@ -11,5 +11,9 @@ module.exports = {
         babies.push(newBaby)
         res.status(200).send(babies)
         globalID++
+    }, 
+    deleteBaby: (req, res) => {
+        let badBaby = req.body
+        
     }
 }
