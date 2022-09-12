@@ -4,10 +4,10 @@ const getAll = document.querySelector("#getBabies")
 const babyContainer = document.querySelector(".babiesContainer")
 
 const getAllBabies = () => {
-    console.log("Hello")
+    // console.log("Hello")
     axios.get(`${baseURL}`)
     .then((res) => {
-        console.log(res)
+        // console.log(res)
         displayBabies(res.data)
     })
     .catch(err => console.log(err))
@@ -15,7 +15,7 @@ const getAllBabies = () => {
 
 function displayBabies(arr) {
     babyContainer.innerHTML = ``
-    for(let i=0; i<arr.length; i++){
+    for(let i=0; i<arr.length; i++) {
         createBabyCard(arr[i])
     }
 }

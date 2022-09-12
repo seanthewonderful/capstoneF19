@@ -5,10 +5,10 @@ const submit = document.querySelector("#submit")
 const babyContainer = document.querySelector(".babiesContainer")
 
 const getAllBabies = () => {
-    console.log("Hello")
+    // console.log("Hello")
     axios.get(`${baseURL}`)
     .then((res) => {
-        console.log(res)
+        // console.log(res)
         displayBabies(res.data)
     })
     .catch(err => console.log(err))
